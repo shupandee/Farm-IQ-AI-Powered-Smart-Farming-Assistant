@@ -12,9 +12,9 @@
 </style>
 <!--Form Section-->
 <br /><br />
-<h2 style="text-align: center; margin: 0px; color: black">
-  <b>Find out the most suitable crop to grow in your farm</b>
-</h2>
+  <h2 class="text-center mb-4" style="color: black;">
+    <b>Find out the most suitable crop to grow in your farm</b>
+  </h2>
 <br />
 
 <div
@@ -27,23 +27,36 @@
     padding: 10px 10px;
   "
 >
+<div class="form-card" data-aos="fade-up">
   <form method="POST" action="{{ url_for('crop_prediction') }}">
     <div class="form-group">
-      <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen</b></label>
-      <input
-        type="number"
-        class="form-control"
-        id="Nitrogen"
-        name="nitrogen"
-        placeholder="Enter the value (example:50)"
-        style="font-weight: bold"
-        required
-      />
+  <label for="Nitrogen" class="form-label">
+    <i class="fa fa-flask text-success"></i> Nitrogen
+    <span data-toggle="tooltip" title="Enter the nitrogen value from your soil report">🛈</span>
+  </label>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"><i class="fa fa-leaf"></i></span>
     </div>
+    <input
+      type="number"
+      class="form-control"
+      id="Nitrogen"
+      name="nitrogen"
+      placeholder="e.g., 50"
+      required
+    />
+  </div>
+</div>
     <div class="form-group">
-      <label for="Phosphorous" style="font-size: 17px"
-        ><b>Phosphorous</b></label
-      >
+  <label for="Phosphorous" class="form-label">
+    <i class="fa fa-flask text-success"></i> Phosphorous
+    <span data-toggle="tooltip" title="Enter the Phosphorous value from your soil report">🛈</span>
+  </label>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"><i class="fa fa-leaf"></i></span>
+    </div>
       <input
         type="number"
         class="form-control"
@@ -54,9 +67,17 @@
         required
       />
     </div>
+    </div>
 
     <div class="form-group">
-      <label for="Pottasium" style="font-size: 17px"><b>Pottasium</b></label>
+  <label for="Pottasium" class="form-label">
+    <i class="fa fa-flask text-success"></i> Pottasium
+    <span data-toggle="tooltip" title="Enter the pottasium value from your soil report">🛈</span>
+  </label>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"><i class="fa fa-leaf"></i></span>
+    </div>
       <input
         type="number"
         class="form-control"
@@ -66,6 +87,7 @@
         style="font-weight: bold"
         required
       />
+    </div>
     </div>
     <div class="form-group">
       <label for="ph" style="font-size: 17px"><b>ph level</b></label>
@@ -128,6 +150,7 @@
       </button>
     </div>
   </form>
+</div>
 </div>
 
 

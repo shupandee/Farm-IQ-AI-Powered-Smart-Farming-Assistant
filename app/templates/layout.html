@@ -136,11 +136,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<script type="text/JavaScript" src="{{ url_for('static', filename='scripts/cities.js') }}"></script>
 
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
 
 	<!-- google fonts -->
 	<link href="//fonts.googleapis.com/css?family=Thasadith:400,400i,700,700i&amp;subset=latin-ext,thai,vietnamese"
 		rel="stylesheet">
 	<!-- //google fonts -->
+	<!-- AOS Animation Library -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
+
 
 	<style>
 		header {
@@ -150,40 +154,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		}
 	</style>
+	<meta name="description" content="FarmIQ AI-powered agricultural assistant providing crop recommendations, fertilizer suggestions, and disease prediction.">
+	<meta name="keywords" content="Agriculture, Crop Recommendation, Fertilizer, Plant Disease Detection, AI, Machine Learning">
+	<meta name="author" content="Varnit Kumar">
+
 </head>
 
 <body>
+	<!-- BEGIN: Loading Spinner -->
+<div id="loading-spinner" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    display: none;
+">
+  <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<!-- END: Loading Spinner -->
 
 	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" style="background-color: #1C00ff00;">
-		<div class="container">
-			<a class="navbar-brand" href="{{ url_for('home') }}">
-				<img src="{{ url_for('static', filename='images/logo.jpg') }}" style="width: 90px; height: 55px" alt="">
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="{{ url_for('home') }}">Home
-							<span class="sr-only">(current)</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ url_for('crop_recommend') }}">Crop</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ url_for('fertilizer_recommendation') }}">Fertilizer</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ url_for('disease_prediction') }}">Disease</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  
+    <a class="navbar-brand pl-3" href="{{ url_for('home') }}">
+      <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="FarmIQ Logo" />
+    </a>
+	<div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('crop_recommend') }}">Crop</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('fertilizer_recommendation') }}">Fertilizer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('disease_prediction') }}">Disease</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 
 
@@ -210,20 +236,132 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- <a href="community.html">Community</a> -->
 				</p>
 			</div>
-			<div class="w3l-copy text-center">
-				<p class="text-da">An Environmental Intelligence Startup<br> </p>
-			</div>
-			<p class="homelogo">
-			<p>Made with ❤️ by Varnit</p>
-			<p>&copy; Copyright 2025 Varnit Kumar</p>
-			
-		</div>
 	</footer>
 	<!-- //footer -->
 
 	<!-- move top icon -->
 	<a href="#home" class="move-top text-center"></a>
 	<!-- //move top icon -->
+	 <!-- AOS Animation Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+	<script>
+  		AOS.init();
+	</script>
+	<footer class="footer bg-dark text-light pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>FarmIQ</h5>
+        <p>An Environmental Intelligence Startup</p>
+        <p>© 2025 Varnit Kumar</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="{{ url_for('home') }}" class="text-light">Home</a></li>
+          <li><a href="{{ url_for('crop_recommend') }}" class="text-light">Crop Recommendation</a></li>
+          <li><a href="{{ url_for('fertilizer_recommendation') }}" class="text-light">Fertilizer Recommendation</a></li>
+          <li><a href="{{ url_for('disease_prediction') }}" class="text-light">Disease Prediction</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Subscribe</h5>
+        <form id="newsletter-form">
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Enter your email" required>
+          </div>
+          <button type="submit" class="btn btn-success btn-block">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- FarmAI Chatbot -->
+<div id="chat-toggle" onclick="toggleChat()">
+  🤖
+</div>
+
+<div id="chat-box">
+  <div id="chat-header">FarmAI - Ask Me Anything!</div>
+  <div id="chat-messages"></div>
+  <div id="chat-input">
+    <input type="text" id="userInput" placeholder="Ask a question..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  const moveTopBtn = document.querySelector('.move-top');
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      moveTopBtn.style.display = 'block';
+    } else {
+      moveTopBtn.style.display = 'none';
+    }
+  });
+  moveTopBtn.addEventListener('click', () => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+</script>
+<script>
+  const navbar = document.querySelector('.navbar');
+
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+</script>
+<script>
+  // Show spinner on any form submission
+  const allForms = document.querySelectorAll('form');
+  allForms.forEach(form => {
+    form.addEventListener('submit', function () {
+      document.getElementById('loading-spinner').style.display = 'flex';
+    });
+  });
+</script>
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>
+<script>
+function toggleChat() {
+  const box = document.getElementById('chat-box');
+  box.style.display = (box.style.display === 'flex') ? 'none' : 'flex';
+}
+
+function sendMessage() {
+  const input = document.getElementById('userInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  const chat = document.getElementById('chat-messages');
+  chat.innerHTML += `<div><b>You:</b> ${msg}</div>`;
+
+  // Basic hardcoded reply logic (can be upgraded)
+  let reply = "Sorry, I didn't get that.";
+
+  if (msg.toLowerCase().includes('crop')) {
+    reply = "Based on your soil, I suggest Rice or Maize.";
+  } else if (msg.toLowerCase().includes('fertilizer')) {
+    reply = "Use Urea or DAP depending on your soil test.";
+  } else if (msg.toLowerCase().includes('disease')) {
+    reply = "Upload a leaf image in Disease section for analysis.";
+  }
+
+  setTimeout(() => {
+    chat.innerHTML += `<div><b>FarmAI:</b> ${reply}</div>`;
+    chat.scrollTop = chat.scrollHeight;
+  }, 500);
+
+  input.value = '';
+}
+</script>
+
 </body>
 
 </html>
