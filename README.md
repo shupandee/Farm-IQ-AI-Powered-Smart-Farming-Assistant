@@ -373,9 +373,9 @@ This project builds upon the excellent foundation provided by:
 
 <div align="center">
 
-### 🌱 Made with ❤️ for Sustainable Agriculture
+### 🌱 Made with ❤️ by Varnit Kumar
 
-**Farm-IQ** • *Empowering Farmers with AI* • **2024**
+**Farm-IQ** • *Empowering Farmers with AI* • **2025**
 
 [![Stars](https://img.shields.io/github/stars/vannu07/Farm-IQ-AI-Powered-Smart-Farming-Assistant?style=social)](https://github.com/vannu07/Farm-IQ-AI-Powered-Smart-Farming-Assistant/stargazers)
 [![Forks](https://img.shields.io/github/forks/vannu07/Farm-IQ-AI-Powered-Smart-Farming-Assistant?style=social)](https://github.com/vannu07/Farm-IQ-AI-Powered-Smart-Farming-Assistant/network)
