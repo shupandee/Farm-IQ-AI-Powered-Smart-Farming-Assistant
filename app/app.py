@@ -189,6 +189,9 @@ def crop_prediction():
         if weather_data and weather_data[0] is not None:
             temperature, humidity = weather_data
             data = np.array([[N, P, K, temperature, humidity, ph, rainfall]])
+            if crop_recommendation_model is None:
+                flash("❌ Crop recommendation model is unavailable. Please try again later.")
+                return redirect(url_for('crop_recommend'))
             my_prediction = crop_recommendation_model.predict(data)
             final_prediction = my_prediction[0]
 
