@@ -28,7 +28,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 app = Flask(__name__)
 # --- CHANGE: Add a secret key for flash messages to work.
 # It's better to set this as an environment variable in production.
-app.secret_key = os.urandom(24) 
+app.secret_key = os.environ.get('SECRET_KEY', os.urandom(24))
 
 # ==============================================================================================
 # -------------------------LOADING THE TRAINED MODELS & DATA -----------------------------------
