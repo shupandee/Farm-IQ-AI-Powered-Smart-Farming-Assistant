@@ -6,6 +6,16 @@
 
 ***
 
+## 📚 Getting Started
+
+Before you begin contributing, please:
+
+1. **Read the [Setup Guide](SETUP_GUIDE.md)** - Learn how to set up the project locally
+2. **Review the [API Documentation](API_DOCUMENTATION.md)** - Understand the endpoints and functionality
+3. **Check the [README](README.md)** - Get familiar with the project overview
+
+***
+
 ## 🚀 Ways to Contribute
 
 We look for focused, high-impact contributions. Your help can fall into these key areas:
