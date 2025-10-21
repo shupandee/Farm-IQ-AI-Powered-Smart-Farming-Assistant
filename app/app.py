@@ -291,5 +291,6 @@ def disease_prediction():
 
 # ===============================================================================================
 if __name__ == '__main__':
-    # Use debug=True for development to see live changes and better error pages
-    app.run(debug=True)
+    # Use debug mode only if the environment variable DEBUG is set to '1' or 'true'
+    debug_mode = os.environ.get('DEBUG', 'False').lower() in ('1', 'true', 'yes')
+    app.run(debug=debug_mode)
