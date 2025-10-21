@@ -222,43 +222,148 @@ flowchart LR
 
 <div align="center">
 
+[![Python](https://img.shields.io/badge/Python-3.6.12+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
 [![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/download)
-[![Anaconda](https://img.shields.io/badge/Anaconda-44A833?style=for-the-badge&logo=anaconda&logoColor=white)](https://www.anaconda.com/)
+[![Anaconda](https://img.shields.io/badge/Anaconda-44A833?style=for-the-badge&logo=anaconda&logoColor=white)](https://www.anaconda.com/) *(Optional but Recommended)*
 
 </div>
 
+**Required Software:**
+- **Python 3.6.12** or higher (Python 3.7+ recommended for better compatibility)
+- **Git** for version control
+- **pip** package manager (comes with Python)
+- **virtualenv** or **conda** for environment management (recommended)
+
 ### 📥 Installation Steps
+
+#### Option 1: Using Anaconda (Recommended)
+
+Anaconda provides better package management and avoids dependency conflicts.
 
 1. **Clone the Repository**
    ```bash
-   # For deployment-ready code
+   # For deployment-ready code (recommended)
+   git clone -b deploy https://github.com/vannu07/Farm-IQ-AI-Powered-Smart-Farming-Assistant.git
+   cd Farm-IQ-AI-Powered-Smart-Farming-Assistant
+   
+   # OR for development with training notebooks
+   git clone https://github.com/vannu07/Farm-IQ-AI-Powered-Smart-Farming-Assistant.git
+   cd Farm-IQ-AI-Powered-Smart-Farming-Assistant
+   ```
+
+2. **Create Python Environment**
+   ```bash
+   # Create conda environment with Python 3.6.12
+   conda create -n Farm-IQ python=3.6.12 -y
+   
+   # Activate the environment
+   conda activate Farm-IQ
+   ```
+
+3. **Install Dependencies**
+   ```bash
+   # Install all required packages from requirements.txt
+   pip install -r requirements.txt
+   
+   # Verify installation
+   pip list
+   ```
+
+4. **Launch Application**
+   ```bash
+   # Start the Flask development server
+   python app.py
+   ```
+
+5. **Access the Platform**
+   - Open your browser and navigate to: `http://localhost:5000`
+   - Or use the URL displayed in your terminal
+   - Start exploring the AI-powered farming features!
+
+#### Option 2: Using Python venv (Alternative)
+
+If you don't have Anaconda, you can use Python's built-in venv module.
+
+1. **Clone the Repository**
+   ```bash
    git clone -b deploy https://github.com/vannu07/Farm-IQ-AI-Powered-Smart-Farming-Assistant.git
    cd Farm-IQ-AI-Powered-Smart-Farming-Assistant
    ```
 
-2. **Environment Setup**
+2. **Create Virtual Environment**
    ```bash
-   # Create virtual environment
-   conda create -n Farm-IQ python=3.6.12
-   conda activate Farm-IQ
+   # On Windows
+   python -m venv Farm-IQ-env
+   Farm-IQ-env\Scripts\activate
    
-   # Install dependencies
+   # On macOS/Linux
+   python3 -m venv Farm-IQ-env
+   source Farm-IQ-env/bin/activate
+   ```
+
+3. **Upgrade pip and Install Dependencies**
+   ```bash
+   # Upgrade pip to latest version
+   python -m pip install --upgrade pip
+   
+   # Install all dependencies
    pip install -r requirements.txt
    ```
 
-3. **Launch Application**
+4. **Run the Application**
    ```bash
    python app.py
    ```
 
-4. **Access the Platform**
-   - Open your browser and navigate to the localhost URL displayed in terminal
-   - Start exploring the AI-powered farming features!
+5. **Access in Browser**
+   - Navigate to: `http://localhost:5000`
+
+### 🔧 Troubleshooting
+
+<details>
+<summary><strong>Common Issues & Solutions</strong></summary>
+
+#### Issue: ModuleNotFoundError
+**Solution:** Make sure your virtual environment is activated and all dependencies are installed:
+```bash
+conda activate Farm-IQ  # or source Farm-IQ-env/bin/activate
+pip install -r requirements.txt
+```
+
+#### Issue: Port 5000 already in use
+**Solution:** Either stop the process using port 5000, or specify a different port:
+```bash
+python app.py --port 8000
+```
+
+#### Issue: TensorFlow/PyTorch installation fails
+**Solution:** Install these packages separately with specific versions:
+```bash
+pip install tensorflow==2.4.0
+pip install torch==1.7.0
+```
+
+#### Issue: Permission denied errors
+**Solution:** Run with appropriate permissions or use a virtual environment to avoid system-wide installations.
+
+</details>
 
 ### 🌿 Branch Information
 
-- **`main` branch:** Complete development code with training notebooks
-- **`deploy` branch:** Production-ready streamlined code (recommended for local setup)
+- **`main` branch:** Complete development code with training notebooks, datasets, and research materials
+- **`deploy` branch:** Production-ready streamlined code (recommended for local setup and deployment)
+
+### 📦 Key Dependencies
+
+The project relies on these major packages:
+- **Flask 1.1.2** - Web framework
+- **scikit-learn 0.23.2** - Machine Learning models
+- **TensorFlow/PyTorch** - Deep Learning for disease detection
+- **pandas 1.1.4** - Data manipulation
+- **numpy 1.19.4** - Numerical computing
+- **matplotlib 3.3.3** - Data visualization
+
+For a complete list, see [requirements.txt](requirements.txt)
 
 ---
 
