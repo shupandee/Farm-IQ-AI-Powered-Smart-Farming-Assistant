@@ -70,7 +70,8 @@ except Exception as e:
 
 # --- CHANGE: Load fertilizer data ONCE at startup, not on every request.
 try:
-    fertilizer_df = pd.read_csv('Data/fertilizer.csv')
+    fertilizer_csv_path = os.path.join(os.path.dirname(__file__), 'Data', 'fertilizer.csv')
+    fertilizer_df = pd.read_csv(fertilizer_csv_path)
     logging.info("✅ Fertilizer data loaded successfully.")
 except Exception as e:
     logging.error(f"❌ Error loading fertilizer.csv: {e}")
