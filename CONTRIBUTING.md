@@ -64,3 +64,59 @@ Please adhere to standard Python best practices (PEP 8), and keep all dependenci
 4.  **Hacktoberfest:** Feel free to mention your participation in Hacktoberfest!
 
 Thank you for helping Farm-IQ grow! Happy coding! 🥳
+
+***
+
+## 🧹 Linting (Black & isort)
+
+To ensure a consistent code style across the repository, this project uses Black and isort. A GitHub Actions workflow (`.github/workflows/lint.yml`) automatically runs formatting checks on push and when a pull request is opened against `main`.
+
+What the workflow does:
+
+- Runs `black --check .` to verify code is formatted according to Black (check-only — it does not rewrite files).
+- Runs `isort --check-only .` to verify imports are sorted (check-only).
+
+How to run the checks locally:
+
+1. (Optional) Create and activate a virtual environment:
+
+	python -m venv .venv
+	.venv\Scripts\Activate.ps1  # PowerShell on Windows
+
+2. Install the dev tools (you can add them to `requirements-dev.txt` if you prefer):
+
+	pip install --upgrade pip
+	pip install black isort
+
+3. Run the checks:
+
+	black --check .
+	isort --check-only .
+
+If the checks fail, run the formatters to fix issues before committing:
+
+	black .
+	isort .
+
+Notes:
+
+- The GitHub Actions workflow only checks formatting to keep CI non-destructive. Please format your code locally before pushing to avoid CI failures.
+- Consider using pre-commit hooks or editor integrations for automatic formatting on save; this can help reduce friction for contributors.
+
+Pre-commit (recommended):
+
+To automatically run Black and isort before each commit, install `pre-commit` and enable the hooks included in the repository:
+
+1. Install pre-commit:
+
+	pip install pre-commit
+
+2. Install the hooks (run once per clone):
+
+	pre-commit install
+
+3. Optionally run hooks against all files on first setup:
+
+	pre-commit run --all-files
+
+This project includes a `.pre-commit-config.yaml` with Black and isort hooks. Using pre-commit reduces CI failures and keeps commits clean.
