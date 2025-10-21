@@ -11,7 +11,7 @@
 
 *Revolutionizing agriculture through AI-powered crop recommendations, fertilizer suggestions, and disease detection*
 
-[🚀 Live Demo](#) • [📖 Documentation](#how-to-use-) • [🤝 Contribute](#contribute-) • [📞 Contact](#contact-)
+[🚀 Live Demo](#) • [📖 Documentation](SETUP_GUIDE.md) • [📡 API Docs](API_DOCUMENTATION.md) • [🤝 Contribute](CONTRIBUTING.md) • [📞 Contact](#contact-)
 
 </div>
 
@@ -211,6 +211,12 @@ flowchart LR
 ---
 
 ## 🚀 Local Installation Guide
+
+### 📖 Quick Links
+
+- **[Complete Setup Guide](SETUP_GUIDE.md)** - Detailed installation instructions
+- **[API Documentation](API_DOCUMENTATION.md)** - Comprehensive API reference
+- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to the project
 
 ### Prerequisites
 
