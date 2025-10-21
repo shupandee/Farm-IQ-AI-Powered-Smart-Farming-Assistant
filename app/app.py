@@ -184,9 +184,10 @@ def crop_prediction():
             flash("❌ Please enter a city name.")
             return redirect(url_for('crop_recommend'))
 
-        temperature, humidity = weather_fetch(city)
+        weather_data = weather_fetch(city)
         
-        if temperature is not None and humidity is not None:
+        if weather_data and weather_data[0] is not None:
+            temperature, humidity = weather_data
             data = np.array([[N, P, K, temperature, humidity, ph, rainfall]])
             my_prediction = crop_recommendation_model.predict(data)
             final_prediction = my_prediction[0]
