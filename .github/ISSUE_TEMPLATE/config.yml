@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name:  Discussions
-    url: https://github.com/<your-username>/<repo-name>/discussions
+    url: https://github.com/octocat/hello-world/discussions
     about: Please use discussions for questions and general ideas.
