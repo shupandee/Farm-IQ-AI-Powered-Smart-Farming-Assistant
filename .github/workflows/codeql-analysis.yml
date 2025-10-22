@@ -43,21 +43,3 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{ matrix.language }}"
-
-    # ✅ Auto-label all CodeQL PRs for Hacktoberfest
-    - name: Add Hacktoberfest label
-      if: github.event_name == 'pull_request'
-      uses: actions-ecosystem/action-add-labels@v1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        labels: 
-          hacktoberfest
-
-    # ✅ Auto-add "hacktoberfest-accepted" when merged
-    - name: Add Hacktoberfest Accepted Label
-      if: github.event.pull_request.merged == true
-      uses: actions-ecosystem/action-add-labels@v1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        labels: 
-          hacktoberfest-accepted
