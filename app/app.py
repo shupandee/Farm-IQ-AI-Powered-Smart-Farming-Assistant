@@ -1,24 +1,24 @@
 # app.py
 
 # Importing essential libraries and modules
+import io
+import logging
 import os
-from flask import Flask, render_template, request, redirect, flash, url_for
-from markupsafe import Markup
+import pickle
+
+import config  # Assuming config.py holds your weather_api_key
 import numpy as np
 import pandas as pd
 import requests
-import pickle
-import io
 import torch
-from torchvision import transforms
+from flask import Flask, flash, redirect, render_template, request, url_for
+from markupsafe import Markup
 from PIL import Image
-import logging
-
+from torchvision import transforms
 # --- CHANGE: Import custom modules more cleanly
 from utils.disease import disease_dic
 from utils.fertilizer import fertilizer_dic
 from utils.model import ResNet9
-import config  # Assuming config.py holds your weather_api_key
 
 # ==============================================================================================
 # --- CHANGE: Set up basic logging to see errors in the console
