@@ -1,0 +1,27 @@
+name: Hacktoberfest Label Automation
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  add-labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Hacktoberfest label to new PRs
+        if: github.event.action != 'closed'
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: ['hacktoberfest']
+
+      - name: Add Hacktoberfest Accepted label to merged PRs
+        if: github.event.action == 'closed' && github.event.pull_request.merged == true
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: ['hacktoberfest-accepted']
