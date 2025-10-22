@@ -15,6 +15,7 @@ from flask import Flask, flash, redirect, render_template, request, url_for
 from markupsafe import Markup
 from PIL import Image
 from torchvision import transforms
+
 # --- CHANGE: Import custom modules more cleanly
 from utils.disease import disease_dic
 from utils.fertilizer import fertilizer_dic
