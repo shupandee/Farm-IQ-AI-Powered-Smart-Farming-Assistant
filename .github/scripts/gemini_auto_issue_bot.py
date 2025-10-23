@@ -1,6 +1,8 @@
-import os, glob
-from dotenv import load_dotenv
+import glob
+import os
+
 import google.generativeai as genai
+from dotenv import load_dotenv
 from github import Github
 
 # Load environment variables from .env file
@@ -13,6 +15,7 @@ repo_name = os.getenv("GITHUB_REPOSITORY")
 repo = gh.get_repo(repo_name)
 
 model = genai.GenerativeModel("gemini-1.5-pro")
+
 
 def analyze_file(file_path):
     try:
@@ -40,6 +43,7 @@ def analyze_file(file_path):
     except Exception as e:
         print(f"⚠️ Error analyzing {file_path}: {e}")
     return None, None
+
 
 for file_path in glob.glob("**/*.py", recursive=True):
     title, body = analyze_file(file_path)
