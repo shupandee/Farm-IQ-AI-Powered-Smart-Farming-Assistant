@@ -3,7 +3,7 @@ name: 🤖 Gemini Auto Issue Bot
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 6 * * 1"
+    - cron: "0 6 * * 1" # 
 
 jobs:
   gemini-auto-issue:
@@ -25,11 +25,9 @@ jobs:
       - name: Install dependencies
         run: pip install google-generativeai PyGithub python-dotenv
 
-      - name: Load .env file
-        run: echo "Loading environment variables from .env"
-
       - name: Run Gemini Auto Issue Bot
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python .github/scripts/gemini_auto_issue_bot.py
