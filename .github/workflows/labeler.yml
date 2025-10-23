@@ -1,0 +1,45 @@
+name: "Auto Labeler"
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+  push:
+    branches:
+      - main
+  issues:
+    types: [opened, edited, reopened]
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Apply labels using file paths
+        uses: actions/labeler@v5
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Label issues by title or keywords
+        if: github.event_name == 'issues'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const labelsToAdd = [];
+
+            const title = issue.title.toLowerCase();
+
+            if (title.includes("bug")) labelsToAdd.push("bug");
+            if (title.includes("feature") || title.includes("enhancement")) labelsToAdd.push("enhancement");
+            if (title.includes("docs")) labelsToAdd.push("documentation");
+
+            if (labelsToAdd.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: labelsToAdd
+              });
+            }
