@@ -8,6 +8,7 @@ app/Runtime.txt
 # Environment Variables
 .env
 *.env
+.env.example
 !.env.example
 
 # Python
