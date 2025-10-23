@@ -1,0 +1,8 @@
+# Labeler configuration file
+docs/**: documentation
+notebooks/**: ml-model
+.github/**: ci/cd
+frontend/**: frontend
+backend/**: backend
+*.py: python
+*.ipynb: jupyter-notebook
